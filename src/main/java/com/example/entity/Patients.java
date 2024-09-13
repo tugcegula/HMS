@@ -17,20 +17,24 @@ public class Patients {
     private Long patientsId;
     private String name;
     private String surname;
-    private long tc;
+    private long identityNo;
     private int dob;
     private String gender;
     private int phoneNum;
 
-    @OneToMany(mappedBy ="patients")
+    @OneToMany(mappedBy ="patients",cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<MedicalRecords> records;
 
-    public Patients(Long patientsId, String name, String surname, long tc, int dob, String gender, int phoneNum) {
+    @OneToMany(mappedBy ="patients",cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Billing> billings;
+
+    public Patients(Long patientsId, String name, String surname, long identityNo, int dob, String gender, int phoneNum) {
         this.patientsId = patientsId;
         this.name = name;
         this.surname = surname;
-        this.tc = tc;
+        this.identityNo = identityNo;
         this.dob = dob;
         this.gender = gender;
         this.phoneNum = phoneNum;
@@ -60,12 +64,12 @@ public class Patients {
         this.surname = surname;
     }
 
-    public long getTc() {
-        return tc;
+    public long getIdentityNo() {
+        return identityNo;
     }
 
-    public void setTc(long tc) {
-        this.tc = tc;
+    public void setIdentityNo(long identityNo) {
+        this.identityNo = identityNo;
     }
 
     public int getDob() {

@@ -15,15 +15,15 @@ public class Users {
     private Long id;
     private String name;
     private String surname;
-    private long tc;
+    private long identityNo;
     private String branch;
 
 
-    public Users(Long id, String name, String surname, long tc, String branch) {
+    public Users(Long id, String name, String surname, long identityNo, String branch) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.tc = tc;
+        this.identityNo = identityNo;
         this.branch = branch;
     }
 
@@ -51,12 +51,12 @@ public class Users {
         this.surname = surname;
     }
 
-    public long getTc() {
-        return tc;
+    public long getIdentityNo() {
+        return identityNo;
     }
 
-    public void setTc(long tc) {
-        this.tc = tc;
+    public void setIdentityNo(long identityNo) {
+        this.identityNo = identityNo;
     }
 
     public String getBranch() {

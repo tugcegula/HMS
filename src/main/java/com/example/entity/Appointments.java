@@ -2,6 +2,9 @@ package com.example.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name="appointments")
 public class Appointments {
@@ -11,11 +14,11 @@ public class Appointments {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long randevuId;
-    private int date;
+    private LocalDate date;
     private int number;
-    private int time;
+    private LocalDateTime time;
 
-    public Appointments(Long randevuId, int date, int number, int time) {
+    public Appointments(Long randevuId, LocalDate date, int number, LocalDateTime time) {
         this.randevuId = randevuId;
         this.date = date;
         this.number = number;
@@ -30,11 +33,11 @@ public class Appointments {
         this.randevuId = randevuId;
     }
 
-    public int getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -46,11 +49,11 @@ public class Appointments {
         this.number = number;
     }
 
-    public int getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 }
