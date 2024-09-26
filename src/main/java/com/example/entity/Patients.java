@@ -1,8 +1,7 @@
 package com.example.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+import javax.persistence.*;
 
 import java.util.List;
 

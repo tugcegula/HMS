@@ -1,9 +1,10 @@
 package com.example.entity;
 
-import jakarta.persistence.*;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name="appointments")

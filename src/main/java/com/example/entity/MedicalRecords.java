@@ -2,7 +2,7 @@ package com.example.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import java.util.List;
 public class MedicalRecords {
     //HastaBilgisi(bilgiID, personelD, hastaID, recetelD)
     @Id
+    @Column(name= "recordId")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long recordId;
     @ManyToOne

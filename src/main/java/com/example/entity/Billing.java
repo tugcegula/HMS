@@ -2,7 +2,7 @@ package com.example.entity;
 
 import com.example.enums.BillingStatus;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.LocalDate;
 
@@ -12,6 +12,7 @@ import java.time.LocalDate;
 public class Billing {
     //billingid, patientid, date,total amount,status,
     @Id
+    @Column(name= "billingId")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long billingId;
     @ManyToOne
