@@ -17,15 +17,18 @@ public class Prescription {
     @ManyToOne
     @JoinColumn(name = "patientsId", referencedColumnName = "patientsId")
     private Patients patients;
+    @ManyToOne
+    @JoinColumn(name = "recordId", referencedColumnName = "recordId")
+    private MedicalRecords medicalRecord;
 
     @Temporal(TemporalType.DATE)
     private Date date;
 
-
-    public Prescription(Long prescriptionId, Doctor doctor, Patients patients, Date date) {
+    public Prescription(Long prescriptionId, Doctor doctor, Patients patients, MedicalRecords medicalRecord, Date date) {
         this.prescriptionId = prescriptionId;
         this.doctor = doctor;
         this.patients = patients;
+        this.medicalRecord = medicalRecord;
         this.date = date;
     }
 
@@ -51,6 +54,14 @@ public class Prescription {
 
     public void setPatients(Patients patients) {
         this.patients = patients;
+    }
+
+    public MedicalRecords getMedicalRecord() {
+        return medicalRecord;
+    }
+
+    public void setMedicalRecord(MedicalRecords medicalRecord) {
+        this.medicalRecord = medicalRecord;
     }
 
     public Date getDate() {

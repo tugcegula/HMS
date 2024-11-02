@@ -29,7 +29,7 @@ public class MedicalRecords {
 
 
     //Reçete eklenince eklenince
-    @OneToMany(mappedBy ="medicalrecords")
+    @OneToMany(mappedBy ="medicalRecord",cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Prescription> prescriptions;
 //@ManyToOne
