@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface PatientRepository extends JpaRepository<Patients, Long> {
-    Patients findByIdentityNo(String patientsIdentityNo);
+    Patients findByPatientsIdentityNo(long patientsIdentityNo);
     List<Patients> findByName(String name);
     List<Patients> findBySurname(String surname);
 
