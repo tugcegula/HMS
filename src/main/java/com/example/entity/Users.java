@@ -1,9 +1,8 @@
 package com.example.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import javax.persistence.*;
 
-import java.util.List;
+import javax.persistence.*;
 
 @Entity
 @Table(name="users")
@@ -15,7 +14,11 @@ public class Users {
     private String name;
     private String surname;
     private long identityNo;
-    private String branch;
+    private String title;
+
+    @OneToOne(mappedBy = "users",cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Doctor doctor;
 
 
     public Users(Long id, String name, String surname, long identityNo, String branch) {
@@ -23,7 +26,7 @@ public class Users {
         this.name = name;
         this.surname = surname;
         this.identityNo = identityNo;
-        this.branch = branch;
+        this.title = branch;
     }
 
     public Long getId() {
@@ -58,11 +61,11 @@ public class Users {
         this.identityNo = identityNo;
     }
 
-    public String getBranch() {
-        return branch;
+    public String getTitle() {
+        return title;
     }
 
-    public void setBranch(String branch) {
-        this.branch = branch;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

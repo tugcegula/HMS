@@ -16,7 +16,7 @@ public class Patients {
     private Long patientsId;
     private String name;
     private String surname;
-    private long identityNo;
+    private long patientsIdentityNo;
     private int dob;
     private String gender;
     private int phoneNum;
@@ -29,11 +29,11 @@ public class Patients {
     @JsonManagedReference
     private List<Billing> billings;
 
-    public Patients(Long patientsId, String name, String surname, long identityNo, int dob, String gender, int phoneNum) {
+    public Patients(Long patientsId, String name, String surname, long patientsIdentityNo, int dob, String gender, int phoneNum) {
         this.patientsId = patientsId;
         this.name = name;
         this.surname = surname;
-        this.identityNo = identityNo;
+        this.patientsIdentityNo = patientsIdentityNo;
         this.dob = dob;
         this.gender = gender;
         this.phoneNum = phoneNum;
@@ -63,12 +63,12 @@ public class Patients {
         this.surname = surname;
     }
 
-    public long getIdentityNo() {
-        return identityNo;
+    public long getPatientsIdentityNo() {
+        return patientsIdentityNo;
     }
 
-    public void setIdentityNo(long identityNo) {
-        this.identityNo = identityNo;
+    public void setPatientsIdentityNo(long patientsIdentityNo) {
+        this.patientsIdentityNo = patientsIdentityNo;
     }
 
     public int getDob() {
