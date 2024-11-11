@@ -1,6 +1,8 @@
 package com.example.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,27 +13,40 @@ import java.time.LocalDateTime;
 public class Appointments {
     //Randevu (randevuID, tarih, sıra,saat
     @Id
-    @Column(name= "randevuId")
+    @Column(name= "appointmentId")
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private Long randevuId;
+    private Long appointmentId;
     private LocalDate date;
     private int number;
     private LocalDateTime time;
 
-    public Appointments(Long randevuId, LocalDate date, int number, LocalDateTime time) {
-        this.randevuId = randevuId;
+    @ManyToOne
+    @JoinColumn(name = "patients_id" , referencedColumnName = "patientsId")
+    @JsonBackReference
+    private Patients patients;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id" , referencedColumnName = "doctorId")
+    @JsonBackReference
+    private Doctor doctor;
+
+
+    public Appointments(Long appointmentId, LocalDate date, int number, LocalDateTime time, Patients patients, Doctor doctor) {
+        this.appointmentId = appointmentId;
         this.date = date;
         this.number = number;
         this.time = time;
+        this.patients = patients;
+        this.doctor= doctor;
     }
 
-    public Long getRandevuId() {
-        return randevuId;
+    public Long getAppointmentId() {
+        return appointmentId;
     }
 
-    public void setRandevuId(Long randevuId) {
-        this.randevuId = randevuId;
+    public void setAppointmentId(Long appointmentId) {
+        this.appointmentId = appointmentId;
     }
 
     public LocalDate getDate() {
@@ -56,5 +71,21 @@ public class Appointments {
 
     public void setTime(LocalDateTime time) {
         this.time = time;
+    }
+
+    public Patients getPatients() {
+        return patients;
+    }
+
+    public void setPatients(Patients patients) {
+        this.patients = patients;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 }
