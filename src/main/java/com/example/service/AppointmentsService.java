@@ -21,11 +21,9 @@ public class AppointmentsService {
     public AppointmentsService(AppointmentsRepository appointmentsRepository) {
         this.appointmentsRepository = appointmentsRepository;
     }
-
-    public Appointments scheduleAppointmens(Appointments appointments){
-        return appointmentsRepository.save(appointments);
-    }
-
+//    public Appointments scheduleAppointmens(Appointments appointments){
+//        return appointmentsRepository.save(appointments);
+//    }
     public Optional<Appointments> getAppointmentsById(Long appointmentId) {
         return Optional.ofNullable(appointmentsRepository.findByAppointmentId(appointmentId));
     }
@@ -42,10 +40,17 @@ public class AppointmentsService {
         appointmentsRepository.deleteById(appointmentId);
     }
 
-    public void createAppointment(Appointments appointments, Doctor doctor, Patients patients){
+    public Appointments createAppointment(Appointments appointments){
+        Doctor doctor= doctorRepository.findById(appointments.getDoctor().getDoctorId())
+                .orElseThrow(() -> new RuntimeException("Doctor not found"));
+        Patients patients =patientRepository.findById(appointments.getPatients().getPatientsId())
+                .orElseThrow(() -> new RuntimeException("Patient not found"));
+
         appointmentsRepository.save(appointments);
-        doctorRepository.save(doctor);
-        patientRepository.save(patients);
+        appointments.setDoctor(doctor);
+        appointments.setPatients(patients);
+        return appointmentsRepository.save(appointments);
     }
+
 
 }

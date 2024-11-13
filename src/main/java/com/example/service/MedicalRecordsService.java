@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MedicalRecordsService {
@@ -16,7 +17,12 @@ public class MedicalRecordsService {
     public MedicalRecordsService(MedicalRecordsRepository medicalRecordsRepository){
         this.medicalRecordsRepository= medicalRecordsRepository;
     }
-
+    public Optional<MedicalRecords> getMedicalRecordsByMedicalRecordsId(Long recordId){
+        return Optional.ofNullable(medicalRecordsRepository.findByRecordId(recordId));
+    }
+    public List<MedicalRecords> getAllMedicalRecords(){
+        return medicalRecordsRepository.findAll();
+    }
     public List<MedicalRecords> getMedicalRecordsByPatient(Long patientId){
         return medicalRecordsRepository.findByPatientsPatientsIdentityNo(patientId);
     }
