@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class MedicalRecordsService {
 
-    private MedicalRecordsRepository medicalRecordsRepository;
+    private final MedicalRecordsRepository medicalRecordsRepository;
 
     @Autowired
     public MedicalRecordsService(MedicalRecordsRepository medicalRecordsRepository){
@@ -23,8 +23,8 @@ public class MedicalRecordsService {
     public List<MedicalRecords> getAllMedicalRecords(){
         return medicalRecordsRepository.findAll();
     }
-    public List<MedicalRecords> getMedicalRecordsByPatient(Long patientId){
-        return medicalRecordsRepository.findByPatientsPatientsIdentityNo(patientId);
+    public List<MedicalRecords> getMedicalRecordsByPatient(Long patientsId){
+        return medicalRecordsRepository.findByPatientsPatientsIdentityNo(patientsId);
     }
 
     public List<MedicalRecords> getMedicalRecordsByDoctor(Long doctorId){

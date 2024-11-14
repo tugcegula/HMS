@@ -20,6 +20,8 @@ public class Users {
     @JsonManagedReference
     private Doctor doctor;
 
+    public Users() {
+    }
 
     public Users(Long id, String name, String surname, long identityNo, String branch) {
         this.id = id;

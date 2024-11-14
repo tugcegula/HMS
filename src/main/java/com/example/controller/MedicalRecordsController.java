@@ -12,8 +12,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/medicalRecords")
 public class MedicalRecordsController {
-
-    private MedicalRecordsService medicalRecordsService;
+    @Autowired
+    private final MedicalRecordsService medicalRecordsService;
 
     @Autowired
     public MedicalRecordsController(MedicalRecordsService medicalRecordsService) {
@@ -28,11 +28,11 @@ public class MedicalRecordsController {
     public Optional<MedicalRecords> getMedicalRecords(Long recordId){
         return medicalRecordsService.getMedicalRecordsByMedicalRecordsId(recordId);
     }
-    @GetMapping
-    public List<MedicalRecords> getMedicalRecordByPatientId(Long patientId){
-        return medicalRecordsService.getMedicalRecordsByPatient(patientId);
+    @GetMapping("/patient/{patientId}")
+    public List<MedicalRecords> getMedicalRecordByPatientId(Long patientsId){
+        return medicalRecordsService.getMedicalRecordsByPatient(patientsId);
     }
-    @GetMapping
+    @GetMapping("/doctor/{doctorId}")
     public List<MedicalRecords> getMedicalRecordbyDoctorId(Long doctorId){
         return medicalRecordsService.getMedicalRecordsByDoctor(doctorId);
     }

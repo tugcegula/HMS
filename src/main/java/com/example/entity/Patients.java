@@ -29,6 +29,9 @@ public class Patients {
     @JsonManagedReference
     private List<Billing> billings;
 
+    public Patients() {
+    }
+
     public Patients(Long patientsId, String name, String surname, long patientsIdentityNo, int dob, String gender, int phoneNum) {
         this.patientsId = patientsId;
         this.name = name;

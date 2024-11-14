@@ -24,6 +24,9 @@ public class Prescription {
     @Temporal(TemporalType.DATE)
     private Date date;
 
+    public Prescription() {
+    }
+
     public Prescription(Long prescriptionId, Doctor doctor, Patients patients, MedicalRecords medicalRecord, Date date) {
         this.prescriptionId = prescriptionId;
         this.doctor = doctor;

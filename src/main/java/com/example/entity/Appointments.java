@@ -31,6 +31,8 @@ public class Appointments {
     @JsonBackReference
     private Doctor doctor;
 
+    public Appointments() {
+    }
 
     public Appointments(Long appointmentId, LocalDate date, int number, LocalDateTime time, Patients patients, Doctor doctor) {
         this.appointmentId = appointmentId;

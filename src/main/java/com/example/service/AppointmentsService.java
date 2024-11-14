@@ -5,7 +5,7 @@ import com.example.entity.Doctor;
 import com.example.entity.Patients;
 import com.example.repository.AppointmentsRepository;
 import com.example.repository.DoctorRepository;
-import com.example.repository.PatientRepository;
+import com.example.repository.PatientsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.Optional;
 public class AppointmentsService {
     private final AppointmentsRepository appointmentsRepository;
     private DoctorRepository doctorRepository;
-    private PatientRepository patientRepository;
+    private PatientsRepository patientRepository;
 
     @Autowired
     public AppointmentsService(AppointmentsRepository appointmentsRepository) {
@@ -28,8 +28,8 @@ public class AppointmentsService {
         return Optional.ofNullable(appointmentsRepository.findByAppointmentId(appointmentId));
     }
 
-    public List<Appointments> getAppointmentsByPatientId(Long patientId){
-        return appointmentsRepository.findByPatientsPatientsIdentityNo(patientId);
+    public List<Appointments> getAppointmentsByPatientId(Long patientsId){
+        return appointmentsRepository.findByPatientsPatientsIdentityNo(patientsId);
     }
 
     public List<Appointments> getAppointmentsByDoctorId(Long doctorId){

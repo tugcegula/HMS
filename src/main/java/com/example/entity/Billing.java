@@ -24,6 +24,9 @@ public class Billing {
     @Enumerated(EnumType.STRING)
     private BillingStatus status;// array gibi tanımlanacak paid/unpaid/pending vb
 
+    public Billing() {
+    }
+
     public Billing(Long billingId, Patients patients, LocalDate date, double totalAmount, BillingStatus status) {
         this.billingId = billingId;
         this.patients = patients;

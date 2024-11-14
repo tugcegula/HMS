@@ -1,7 +1,7 @@
 package com.example.service;
 
 import com.example.entity.Patients;
-import com.example.repository.PatientRepository;
+import com.example.repository.PatientsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,15 +9,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PatientService {
+public class PatientsService {
 
-    private PatientRepository patientRepository;
+    private final PatientsRepository patientRepository;
     @Autowired
-    public PatientService(PatientRepository patientRepository) {
+    public PatientsService(PatientsRepository patientRepository) {
         this.patientRepository = patientRepository;
     }
-    public Optional<Patients> findByPatientId(Long patientId){
-        return patientRepository.findById(patientId);
+    public Optional<Patients> findByPatientId(Long patientsId){
+        return patientRepository.findById(patientsId);
     }
     public List<Patients> getAllPatients(){
         return patientRepository.findAll();
@@ -26,11 +26,11 @@ public class PatientService {
     public List<Patients> getPatientByIdentityNo(long identityNo){
         return patientRepository.findByPatientsIdentityNo(identityNo);
     }
-    public void deletePatient(Long patientId){
-        if(!patientRepository.existsById(patientId)){
-            throw new RuntimeException("Patient not found with this patientId"+ patientId);
+    public void deletePatient(Long patientsId){
+        if(!patientRepository.existsById(patientsId)){
+            throw new RuntimeException("Patient not found with this patientId"+ patientsId);
         }
-        patientRepository.deleteById(patientId);
+        patientRepository.deleteById(patientsId);
     }
     public Patients createPatient(Patients patients){
         return patientRepository.save(patients);

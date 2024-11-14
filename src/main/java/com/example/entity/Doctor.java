@@ -15,6 +15,9 @@ public class Doctor {
     private Users users;
     private int roomNumber;
 
+    public Doctor() {
+    }
+
     public Doctor(Long doctorId, Users users, int roomNumber) {
         this.doctorId = doctorId;
         this.users = users;

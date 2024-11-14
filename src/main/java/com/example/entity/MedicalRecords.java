@@ -37,6 +37,10 @@ public class MedicalRecords {
 ////@JsonBackReference
 ////private ;
 
+
+    public MedicalRecords() {
+    }
+
     public MedicalRecords(Long recordId, Patients patients, Doctor doctor, List<Prescription> prescriptions) {
         this.recordId = recordId;
         this.patients = patients;
