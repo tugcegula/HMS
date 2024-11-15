@@ -23,12 +23,12 @@ public class MedicalRecordsService {
     public List<MedicalRecords> getAllMedicalRecords(){
         return medicalRecordsRepository.findAll();
     }
-    public List<MedicalRecords> getMedicalRecordsByPatient(Long patientsId){
-        return medicalRecordsRepository.findByPatientsPatientsIdentityNo(patientsId);
+    public List<MedicalRecords> getMedicalRecordsByPatientIdentityNo(Long patientsIdentityNo){
+        return medicalRecordsRepository.findByPatientsPatientsIdentityNo(patientsIdentityNo);
     }
 
-    public List<MedicalRecords> getMedicalRecordsByDoctor(Long doctorId){
-        return medicalRecordsRepository.findByDoctorUsersIdentityNo(doctorId);
+    public List<MedicalRecords> getMedicalRecordsByDoctorIdentityNo(long identityNo){
+        return medicalRecordsRepository.findByDoctorUsersIdentityNo(identityNo);
     }
 
     public MedicalRecords createMedicalRecords(MedicalRecords medicalRecords){

@@ -19,7 +19,7 @@ public class Patients {
     private long patientsIdentityNo;
     private int dob;
     private String gender;
-    private int phoneNum;
+    private String phoneNum;
 
     @OneToMany(mappedBy ="patients",cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
@@ -29,10 +29,14 @@ public class Patients {
     @JsonManagedReference
     private List<Billing> billings;
 
+    @OneToMany(mappedBy = "patients")
+    private List<Appointments> appointments;
+
+
     public Patients() {
     }
 
-    public Patients(Long patientsId, String name, String surname, long patientsIdentityNo, int dob, String gender, int phoneNum) {
+    public Patients(Long patientsId, String name, String surname, long patientsIdentityNo, int dob, String gender, String phoneNum, List<MedicalRecords> records, List<Billing> billings, List<Appointments> appointments) {
         this.patientsId = patientsId;
         this.name = name;
         this.surname = surname;
@@ -40,6 +44,9 @@ public class Patients {
         this.dob = dob;
         this.gender = gender;
         this.phoneNum = phoneNum;
+        this.records = records;
+        this.billings = billings;
+        this.appointments = appointments;
     }
 
     public Long getPatientsId() {
@@ -90,11 +97,35 @@ public class Patients {
         this.gender = gender;
     }
 
-    public int getPhoneNum() {
+    public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(int phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
+    }
+
+    public List<MedicalRecords> getRecords() {
+        return records;
+    }
+
+    public void setRecords(List<MedicalRecords> records) {
+        this.records = records;
+    }
+
+    public List<Billing> getBillings() {
+        return billings;
+    }
+
+    public void setBillings(List<Billing> billings) {
+        this.billings = billings;
+    }
+
+    public List<Appointments> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List<Appointments> appointments) {
+        this.appointments = appointments;
     }
 }

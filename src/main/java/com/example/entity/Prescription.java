@@ -1,5 +1,7 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -7,18 +9,22 @@ import java.util.Date;
 @Table(name ="prescriptions")
 public class Prescription {
     @Id
+    @Column(name= "prescriptionId")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long prescriptionId;
 
     @ManyToOne
     @JoinColumn(name = "doctorId", referencedColumnName = "doctorId")
+    @JsonBackReference
     private Doctor doctor;
 
     @ManyToOne
     @JoinColumn(name = "patientsId", referencedColumnName = "patientsId")
+    @JsonBackReference
     private Patients patients;
     @ManyToOne
     @JoinColumn(name = "recordId", referencedColumnName = "recordId")
+    @JsonBackReference
     private MedicalRecords medicalRecord;
 
     @Temporal(TemporalType.DATE)

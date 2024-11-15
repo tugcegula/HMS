@@ -28,13 +28,13 @@ public class MedicalRecordsController {
     public Optional<MedicalRecords> getMedicalRecords(Long recordId){
         return medicalRecordsService.getMedicalRecordsByMedicalRecordsId(recordId);
     }
-    @GetMapping("/patient/{patientId}")
-    public List<MedicalRecords> getMedicalRecordByPatientId(Long patientsId){
-        return medicalRecordsService.getMedicalRecordsByPatient(patientsId);
+    @GetMapping("/patient/{patientsIdentityNo}")
+    public List<MedicalRecords> getMedicalRecordByPatientIdentityNo(long patientsIdentityNo){
+        return medicalRecordsService.getMedicalRecordsByPatientIdentityNo(patientsIdentityNo);
     }
-    @GetMapping("/doctor/{doctorId}")
-    public List<MedicalRecords> getMedicalRecordbyDoctorId(Long doctorId){
-        return medicalRecordsService.getMedicalRecordsByDoctor(doctorId);
+    @GetMapping("/doctor/{identityNo}")
+    public List<MedicalRecords> getMedicalRecordbyDoctorIdIdentityNo(long identityNo){
+        return medicalRecordsService.getMedicalRecordsByDoctorIdentityNo(identityNo);
     }
 
     @PostMapping("/{recordId}")

@@ -9,6 +9,7 @@ import javax.persistence.*;
 public class Users {
     //(personelID, adi, soyadi, tc, brans,duyuruID,odaID,yetkiID
     @Id
+    @Column(name= "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
@@ -16,8 +17,8 @@ public class Users {
     private long identityNo;
     private String title;
 
-    @OneToOne(mappedBy = "users",cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @OneToOne
+    @JoinColumn(name = "doctorId", referencedColumnName = "doctorId")
     private Doctor doctor;
 
     public Users() {

@@ -19,12 +19,12 @@ public class PrescriptionService {
     public Optional<Prescription> getPrescriptionByPrescriptionId(Long prescriptionId){
         return Optional.ofNullable(prescriptionRepository.findByPrescriptionId(prescriptionId));
     }
-    public List<Prescription> getPrescriptionsByPatientsId(Long patientsId){
-        return prescriptionRepository.findByPatientsPatientsIdentityNo(patientsId);
+    public List<Prescription> getPrescriptionsByPatientsIdentityNo(long patientsIdentityNo){
+        return prescriptionRepository.findByPatientsPatientsIdentityNo(patientsIdentityNo);
     }
 
-    public List<Prescription> getPrescriptionByDoctorId(Long doctorId){
-        return prescriptionRepository.findByDoctorUsersIdentityNo(doctorId);
+    public List<Prescription> getPrescriptionByDoctorIdentityNo(long identityNo){
+        return prescriptionRepository.findByDoctorUsersIdentityNo(identityNo);
     }
 
     public Prescription createPrescription(Prescription prescription){

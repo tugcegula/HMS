@@ -20,16 +20,16 @@ public class PrescriptionController {
     }
 
     @GetMapping("/{prescriptionId}")
-    public Optional<Prescription> getPresceiptionByPrescriptionId(Long prescriptionId){
+    public Optional<Prescription> getPresceiptionByPrescriptionId(long prescriptionId){
         return prescriptionService.getPrescriptionByPrescriptionId(prescriptionId);
     }
     @GetMapping("/patient/{patientId}")
-    public List<Prescription> getPrescriptionByPatientsId(Long patientsId){
-        return prescriptionService.getPrescriptionsByPatientsId(patientsId);
+    public List<Prescription> getPrescriptionByPatientsIdentityNo(long patientsIdentityNo){
+        return prescriptionService.getPrescriptionsByPatientsIdentityNo(patientsIdentityNo);
     }
     @GetMapping("/doctor/{doctorId}")
-    public List<Prescription> getPrescriptionByDoctorId(Long doctorId){
-        return prescriptionService.getPrescriptionByDoctorId(doctorId);
+    public List<Prescription> getPrescriptionByDoctorIdentityNo(Long identityNo){
+        return prescriptionService.getPrescriptionByDoctorIdentityNo(identityNo);
     }
 
     @PostMapping

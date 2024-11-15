@@ -16,7 +16,7 @@ public class Billing {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long billingId;
     @ManyToOne
-    @JoinColumn(name = "patients_id" , referencedColumnName = "patientsId")
+    @JoinColumn(name = "patientsId" , referencedColumnName = "patientsId")
     @JsonBackReference
     private Patients patients;
     private LocalDate date;

@@ -16,14 +16,14 @@ public class MedicalRecords {
     private Long recordId;
 
     @ManyToOne
-    @JoinColumn(name = "patients_id" , referencedColumnName = "patientsId")
+    @JoinColumn(name = "patientsId" , referencedColumnName = "patientsId")
     @JsonBackReference
     private Patients patients;
 
 //Doktor eklenince
 
     @ManyToOne
-    @JoinColumn(name = "doctor_id" , referencedColumnName = "doctorId")
+    @JoinColumn(name = "doctorId" , referencedColumnName = "doctorId")
     @JsonBackReference
     private Doctor doctor;
 

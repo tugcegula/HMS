@@ -22,13 +22,11 @@ public class Appointments {
     private LocalDateTime time;
 
     @ManyToOne
-    @JoinColumn(name = "patients_id" , referencedColumnName = "patientsId")
-    @JsonBackReference
+    @JoinColumn(name = "patientsId" , referencedColumnName = "patientsId")
     private Patients patients;
 
     @ManyToOne
-    @JoinColumn(name = "doctor_id" , referencedColumnName = "doctorId")
-    @JsonBackReference
+    @JoinColumn(name = "doctorId" , referencedColumnName = "doctorId")
     private Doctor doctor;
 
     public Appointments() {
